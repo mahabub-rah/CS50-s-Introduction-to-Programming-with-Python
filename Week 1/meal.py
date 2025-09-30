@@ -15,6 +15,7 @@ def main():
 
 
 def convert(time):
+    # for am
     if 'am' in time:
         time = time.replace('am', '').strip()
         hour, minute = time.split(':')
@@ -22,7 +23,7 @@ def convert(time):
         if hour == 12:  
             hour = 0
         return hour + int(minute) / 60
-
+    # for pm
     elif 'pm' in time:
         time = time.replace('pm', '').strip()
         hour, minute = time.split(':')
@@ -30,13 +31,13 @@ def convert(time):
         if hour != 12:   
             hour += 12
         return hour + int(minute) / 60
-
+    #international time
     else: 
         hour, minute = time.split(':')
         return int(hour) + int(minute) / 60
    
 
-
+# already call the main function
 if __name__ == "__main__":
     main()
 
