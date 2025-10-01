@@ -21,4 +21,5 @@ fruits = {
     "watermelon": 80
 }
 user = input('Item: ').lower().strip()
-print(f'Calories: {fruits.get(user)}')
+if user in fruits.keys():
+    print(f'Calories: {fruits.get(user)}')
