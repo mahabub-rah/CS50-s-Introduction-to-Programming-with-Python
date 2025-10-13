@@ -19,3 +19,4 @@ try:
 
 except requests.RequestException:
     sys.exit("Error fetching data")
+
