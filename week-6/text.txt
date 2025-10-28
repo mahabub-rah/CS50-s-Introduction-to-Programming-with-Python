@@ -1,0 +1,9 @@
+# Say hello
+name = input("What's your name? ")
+print(f"hello, {name}")
+# even number
+def is_even(n):
+    return n % 2 == 0
+# Say goodbye
+name = input("What's your name? ")
+print(f"Goodbye, {name}")
