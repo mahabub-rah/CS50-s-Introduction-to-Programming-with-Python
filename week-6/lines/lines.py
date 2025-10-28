@@ -1,24 +1,5 @@
 import sys
 
-def find_file_line(filename):
-    count = 0
-    search_term = filename.replace(".py", "").strip()
-    found = False
-    with open(filename, "r") as f:
-        for data in f:
-            remove_space = data.strip()
-            if remove_space.startswith('#') and search_term in remove_space:
-                found = True
-                continue
-            if found:
-                if remove_space.startswith('#'):
-                    break
-                if remove_space:
-                    count += 1
-
-    return count
-
-
 def main():
     command = sys.argv
     if len(command) == 1:
