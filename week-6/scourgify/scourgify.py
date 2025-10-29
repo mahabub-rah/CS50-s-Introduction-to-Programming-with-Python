@@ -4,9 +4,9 @@ import sys
 
 def main():
     command = sys.argv
-    if len(command) == 1:
+    if len(command) < 3:
         sys.exit("Too few command-line arguments")
-    elif len(command) > 2:
+    elif len(command) > 3:
         sys.exit("Too many command-line arguments")
     else:
         filename = command[1]
@@ -20,17 +20,21 @@ def main():
             for line in reader:
                 name = line.get('name')
                 if name:
-                    parts = name.split(',')  
-                    data.append({
+                    parts = name.split(',')
+                    students.append({
                         'first': parts[1].strip(),
                         'last': parts[0].strip(),
                         "house": line.get('house')
                         })
+
         field = ['first', 'last', 'house']
-        with open(after_filename,'w') as file:
-            data = csv.DictWriter(f, fieldnames=field)
-            data.writeheader()
+
+        with open(after_filename,'w', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=field)
+            writer.writeheader()
             for info in students:
-                data.writerow(info)
+                writer.writerow(info)
+
+
 if __name__ == "__main__":
     main()
