@@ -34,3 +34,4 @@ while True:
         print("Invalid")
         break
 
+print(99/100)
