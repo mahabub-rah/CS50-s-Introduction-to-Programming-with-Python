@@ -1,0 +1,14 @@
+import re
+
+def main():
+    print(parse(input("HTML: ")))
+
+def parse(s):
+    text = re.search(r'src="https?://(?:www\.)?youtube\.com/embed/([a-zA-Z0-9_-]+)"', s)
+    if text:
+        return f"https://youtu.be/{text.group(1)}"
+    else:
+        return None
+
+if __name__ == "__main__":
+    main()
