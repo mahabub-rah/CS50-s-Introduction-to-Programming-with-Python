@@ -1,8 +1,14 @@
+import validators
+
 def main():
     print(check(input('write your mail: ')))
 
 def check(e):
- return e
+ b = validators.email(e)
+ if b:
+    return "valid"
+ else:
+    return 'Invalid'
 
 
 
